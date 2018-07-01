@@ -18,9 +18,9 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "db": "node mongo_server.js",
-    "client": "npm start --prefix client",
-    "client-install": "npm install --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "npm start --prefix react_client",
+    "client-install": "npm install --prefix react_client",
+    "dev": "concurrently \"npm run db\" \"npm run client\""
   },
   "repository": {
     "type": "git",
