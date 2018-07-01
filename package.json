@@ -5,7 +5,9 @@
   "main": "server.js",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.1.1",
     "concurrently": "^3.6.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "mongoose": "^5.1.7"
   },
@@ -15,6 +17,7 @@
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
+    "db": "node mongo_server.js",
     "client": "npm start --prefix client",
     "client-install": "npm install --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""

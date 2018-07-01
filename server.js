@@ -1,23 +1,17 @@
 const express = require('express'),
-  mongoose = require('mongoose'),
+  app = express(),
   bodyParser = require('body-parser'),
-  routes = require('./routes'),
-  items = require('./routes/api/items'),
+  routes = require('./routes/routes'),
+  port = process.env.PORT || 3000
 
-  app = express()
+app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
 
-const db = require('./config/keys').mongoURI
-
-mongoose
-  .connect(db)
-  .then(() => console.log("Mongo DB connected."))
-  .catch(err => console.log(err))
-
-  app.use('/oauth', oauth)
-  app.use('/api/items', items)
-
-const port = process.env.PORT || 5000
+app.use('/', routes)
 
 app.listen(port, () => console.log("Server started on port " + port))
