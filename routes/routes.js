@@ -1,12 +1,12 @@
 const express = require('express'),
   app = express();
 
-app.get('/', function (req, res) {
+app.get('/', (req, res) => {
   res.render('index', {})
 })
 
-app.use('/oauth', function (req, res) {
-  res.render('oauth', {})
+app.use('/youtube', (req, res) => {
+  res.render('youtubeAPI', {})
 })
 
 module.exports = app
