@@ -13,4 +13,8 @@ app.use("/rest", (req, res) => {
   res.render("post-utility", {})
 })
 
+app.use("/demo", (req, res) => {
+  res.render("demo", {})
+})
+
 module.exports = app
