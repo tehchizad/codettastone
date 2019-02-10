@@ -17,7 +17,7 @@
     "nodemon": "^1.17.5"
   },
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "node server.js",
     "gcloud-setup": "gcloud config set project codettastone && gcloud config set account tehchizad@gmail.com",
     "gcloud-login": "gcloud auth login"
   },
