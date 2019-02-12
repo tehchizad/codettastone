@@ -1,5 +1,6 @@
 const textbox = document.getElementById("output"),
-  key = "MW9S-E7SL-26DU-VV8V",
+  bartKey = "MW9S-E7SL-26DU-VV8V",
+  mapsKey = "AIzaSyBCFO3Lg7DaNsVjeBpK3CBalUEH3RfEANE",
   walkTime = 12,
   now = new Date(),
   abbr = "embr"
@@ -7,14 +8,14 @@ const textbox = document.getElementById("output"),
 let output = ""
 
 function getAPI() {
-  let bartURI = `http://api.bart.gov/api/etd.aspx?key=${key}&cmd=etd&orig=${abbr}&json=y`
+  let bartURI = `http://api.bart.gov/api/etd.aspx?key=${bartKey}&cmd=etd&orig=${abbr}&json=y`
 
   fetch(bartURI)
     .then(response => response.json())
     .then(data => {
       let message = data.root.station[0],
         departTimes = message.etd
-      output += `<h3>${message.name}:</h2>`
+      output += `<h1 class="h3 mb-3 font-weight-normal">bart departures: ${message.name} station</h1>`
       departTimes.forEach(city => {
         parseArrivalTimes(city)
       })
