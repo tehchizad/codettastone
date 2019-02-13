@@ -10,11 +10,29 @@
       </nav>
     </div>
   </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1"></div>
+      <div class="col-md-auto" id="header">.col-sm-4</div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="output"></div>
+      </div>
+      <div class="col-sm-6">
+        <div class="pull-right affix" id="map"></div>
+      </div>
+    </div>
+  </div>
 
-  <main role="main" class="inner cover">
-    <p id="output"></p>
-  </main>
+  <script src="js/maps.js"></script>
+  <script src="js/bart.js"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCFO3Lg7DaNsVjeBpK3CBalUEH3RfEANE&callback=initMap"
+    async
+    defer
+  ></script>
 
-  <script src="js/request.js"></script>
-
-<% include footer %>
+  <% include footer %>
+</div>
