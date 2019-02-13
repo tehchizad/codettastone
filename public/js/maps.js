@@ -1,6 +1,6 @@
 const options = {
     zoom: 13,
-    center: { lat: 37.773972, lng: -122.431297 }
+    center: { lat: 37.789739, lng: -122.389832 }
   },
   markers = [
     {
@@ -8,12 +8,45 @@ const options = {
     }
   ]
 
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos)
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  )
+  infoWindow.open(map)
+}
+
 function initMap() {
   let map = new google.maps.Map(document.getElementById("map"), options),
-    styledMapType = new google.maps.StyledMapType(styleObj, { name: "Styled Map" })
+    styledMapType = new google.maps.StyledMapType(styleObj, { name: "Styled Map" }),
+    infoWindow = new google.maps.InfoWindow()
 
   map.mapTypes.set("styled_map", styledMapType)
   map.setMapTypeId("styled_map")
+  // Try HTML5 geolocation.
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        }
+
+        infoWindow.setPosition(pos)
+        infoWindow.setContent("Location found.")
+        infoWindow.open(map)
+        map.setCenter(pos)
+      },
+      function() {
+        handleLocationError(true, infoWindow, map.getCenter())
+      }
+    )
+  } else {
+    // Browser doesn't support Geolocation
+    handleLocationError(false, infoWindow, map.getCenter())
+  }
   initMarkers(map)
 }
 

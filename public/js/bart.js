@@ -17,28 +17,26 @@ function getAPI() {
     .then(data => {
       let message = data.root.station[0],
         departTimes = message.etd
-      header += `<h1 class="h3 mb-3 font-weight-normal">bart departures: ${
-        message.name
-      } station</h1>`
+      header += `<h3 class="cover-heading">
+      ${message.name} station</h3>`
       departTimes.forEach(city => {
         parseArrivalTimes(city)
       })
       textbox.innerHTML = output
       topbox.innerHTML = header
-      console.log(now)
     })
     .catch(error => console.log(error))
 }
 
 function parseArrivalTimes(city) {
-  console.log("city stuff", city.estimate[0])
   output += `
-  <hr>
-        <ul class="list-inline">
-        <li class="list-inline-item">
-        ${city.destination} ${city.estimate[0].direction} bound
-        </li>
-        <hr color="${city.estimate[0].hexcolor}">`
+  <ul class="list-inline">
+  <li class="list-inline-item border rounded-pill" style="padding:2px 10px;border-color:${
+    city.estimate[0].hexcolor
+  }!important">
+  ${city.destination} ${city.estimate[0].direction} bound
+  </li>
+  `
   city.estimate.forEach(time => {
     let etd = time.minutes
     if (etd == "Leaving") {
@@ -56,8 +54,7 @@ function parseArrivalTimes(city) {
         <li class="list-inline-item">
           ${etd} minutes
         </li>
-        <li class="list-inline-item">
-        leave by ${adjustedDeptarture.toLocaleTimeString()}
+        <li class="list-inline-item">leave by ${adjustedDeptarture.toLocaleTimeString()}
         </li>        
       </ul>`
     } else {

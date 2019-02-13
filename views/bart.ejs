@@ -1,7 +1,7 @@
 <% include header %>
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-  <header class="masthead mb-3">
+  <header class="masthead mb-auto">
     <div class="inner">
       <h3 class="masthead-brand"><a class="nav-link" href="/">codettastone</a></h3>
       <nav class="nav nav-masthead justify-content-center">
@@ -10,21 +10,18 @@
       </nav>
     </div>
   </header>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-1"></div>
-      <div class="col-md-auto" id="header">.col-sm-4</div>
-      <div class="col-sm-1"></div>
-    </div>
-    <div class="row">
-      <div class="col-sm-6">
-        <div id="output"></div>
-      </div>
-      <div class="col-sm-6">
-        <div class="pull-right affix" id="map"></div>
-      </div>
-    </div>
-  </div>
+  
+  <main role="main" class="container">
+     <div class="col-md-auto" id="header">.col-sm-4</div> 
+     <div class="row">
+      <div class="col-sm-6 overflow-auto"> 
+        <p id="output"></p>
+       </div> 
+       <div class="col-sm-6"> 
+        <p id="map"></p>
+       </div>
+    </div> 
+  </main>
 
   <script src="js/maps.js"></script>
   <script src="js/bart.js"></script>
@@ -35,4 +32,3 @@
   ></script>
 
   <% include footer %>
-</div>
