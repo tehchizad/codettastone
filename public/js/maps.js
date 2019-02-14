@@ -28,8 +28,8 @@ function initMap() {
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
-      function(position) {
-        var pos = {
+      position => {
+        let pos = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         }
@@ -38,6 +38,7 @@ function initMap() {
         infoWindow.setContent("Location found.")
         infoWindow.open(map)
         map.setCenter(pos)
+        console.log("pos",pos)
       },
       function() {
         handleLocationError(true, infoWindow, map.getCenter())

@@ -106,9 +106,18 @@ body {
 #map {
   height: 400px;
   width: inherit;
-  position: fixed;
 }
 
 #output {
-  position: absolute;
+  height: 400px;
+}
+
+@media only screen and (max-width: 720px) {
+  body {
+  }
+  #map {
+
+  }
+  #output {
+  }
 }
