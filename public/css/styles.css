@@ -1,15 +1,9 @@
-/*
- * Globals
- */
-
-/* Links */
 a,
 a:focus,
 a:hover {
   color: #fff;
 }
 
-/* Custom default button */
 .btn-secondary,
 .btn-secondary:hover,
 .btn-secondary:focus {
@@ -18,10 +12,6 @@ a:hover {
   background-color: #fff;
   border: 0.05rem solid #fff;
 }
-
-/*
- * Base structure
- */
 
 html,
 body {
@@ -39,15 +29,13 @@ body {
   max-width: 42em;
 }
 
-/*
- * Header
- */
 .masthead {
   margin-bottom: 2rem;
 }
 
 .masthead-brand {
   margin-bottom: 0;
+  float: left;
 }
 
 .nav-masthead .nav-link {
@@ -72,9 +60,6 @@ body {
   border-bottom-color: #fff;
 }
 
-/*
- * Cover
- */
 .cover {
   padding: 0 1.5rem;
 }
@@ -83,9 +68,6 @@ body {
   font-weight: 700;
 }
 
-/*
- * Footer
- */
 .mastfoot {
   color: rgba(255, 255, 255, 0.5);
 }
@@ -94,30 +76,14 @@ body {
   max-width: 960px;
 }
 
-@media (min-width: 48em) {
-  .masthead-brand {
-    float: left;
-  }
-  .nav-masthead {
-    float: right;
-  }
+.nav-masthead {
+  float: right;
 }
 
 #map {
-  height: 400px;
-  width: inherit;
+  height: 200px;
 }
 
 #output {
   height: 400px;
-}
-
-@media only screen and (max-width: 720px) {
-  body {
-  }
-  #map {
-
-  }
-  #output {
-  }
 }
