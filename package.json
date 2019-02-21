@@ -26,10 +26,10 @@
     "url": "git+https://github.com/tehchizad/codettastone.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "chizzy",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/tehchizad/codettastone/issues"
   },
-  "homepage": "https://github.com/tehchizad/codettastone#readme"
+  "homepage": "https://github.com/tehchizad/codettastone"
 }
