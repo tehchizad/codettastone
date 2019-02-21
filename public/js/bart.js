@@ -2,7 +2,7 @@ const textbox = document.getElementById("output"),
   topbox = document.getElementById("header"),
   mapsKey = "AIzaSyBCFO3Lg7DaNsVjeBpK3CBalUEH3RfEANE"
 
-let walkTime, directionsService, directionsDisplay
+let walkTime = 12, directionsService, directionsDisplay
 
 function getAPI() {
   let bartKey = "MW9S-E7SL-26DU-VV8V",
