@@ -2,7 +2,9 @@ const textbox = document.getElementById("output"),
   topbox = document.getElementById("header"),
   mapsKey = "AIzaSyBCFO3Lg7DaNsVjeBpK3CBalUEH3RfEANE"
 
-let walkTime = 12, directionsService, directionsDisplay
+let walkTime = 12,
+  directionsService,
+  directionsDisplay
 
 function getAPI() {
   let bartKey = "MW9S-E7SL-26DU-VV8V",
@@ -16,11 +18,14 @@ function getAPI() {
 }
 
 function populateOutput(message) {
-  let header = `<h4 class="cover-heading">${message.name} station</h4>`
+  let headerData = `<h4 class="cover-heading">${message.name} station</h4>`
+  console.log("item", message.etd)
   message.etd.forEach(city => {
+    console.log("city", city)
+
     parseArrivalTimes(city)
   })
-  topbox.innerHTML = header
+  topbox.innerHTML = headerData
 }
 
 function calcRoute() {
@@ -40,22 +45,23 @@ function calcRoute() {
 }
 
 function parseArrivalTimes(city) {
-  output += `<ul class="list-inline"><li class="list-inline-item border rounded-pill" style="padding:2px 10px;border-color:
+  let outputData = `<ul class="list-inline">`
+  outputData += `<li class="list-inline-item border rounded-pill" style="padding:2px 10px;border-color:
   ${city.estimate[0].hexcolor}!important">
   ${city.destination} ${city.estimate[0].direction} bound</li>`
   city.estimate.forEach(time => {
-    output += `<ul class="list-inline"><li class="list-inline-item">`
+    outputData += `<ul class="list-inline"><li class="list-inline-item">`
     let etd = time.minutes
     if (etd != "Leaving" && etd >= walkTime) {
       let now = new Date(),
         departure = new Date(now.getTime() + etd * 60000 + time.delay * 60),
         adjustedDeptarture = new Date(departure - walkTime * 60000)
-      output += `${etd} minutes: leave by ${adjustedDeptarture.toLocaleTimeString()}</li></ul>`
+      outputData += `${etd} minutes: leave by ${adjustedDeptarture.toLocaleTimeString()}</li></ul>`
     } else if (etd == "Leaving") {
-      output += `${etd}</li></ul>`
+      outputData += `${etd}</li></ul>`
     } else {
-      output += `${etd} minutes</li></ul>`
+      outputData += `${etd} minutes</li></ul>`
     }
   })
-  textbox.innerHTML = output
+  textbox.innerHTML += outputData
 }
