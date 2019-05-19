@@ -9,22 +9,34 @@
     "concurrently": "^3.6.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "jquery": "^3.4.1",
     "mongoose": "^5.1.7",
     "node-env-file": "^0.1.8",
+    "popper.js": "^1.15.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "eslint": "^5.15.2",
+    "babel-eslint": "*",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-html": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-promise": "*",
+    "eslint-plugin-react": "*",
+    "eslint-plugin-react-hooks": "*",
     "eslint-plugin-standard": "^4.0.0",
-    "nodemon": "^1.17.5"
+    "nodemon": "*",
+    "prettier": "*"
   },
   "scripts": {
     "start": "node server.js",
-    "deploy": "gcloud app deploy --version=2"
+    "deploy": "gcloud app deploy --version=2",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",

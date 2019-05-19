@@ -1,6 +1,6 @@
-const express = require('express'),
-  router = express.Router(),
-  Item = require('../../models/items');
+const express = require('express')
+const router = express.Router()
+const Item = require('../../models/items')
 
 // @route GET api/items
 // @desc grabs all items
@@ -10,19 +10,19 @@ router.get('/', (req, res) => {
     .sort({
       date: -1 // sorts items by time/date
     })
-    .then(items => res.json(items));
-});
+    .then(items => res.json(items))
+})
 
 // @route POST api/items
 // @desc creat a post request
 // @access Pulic
 router.post('/', (req, res) => {
-  Item.find();
+  Item.find()
   const newItem = new Item({
     name: req.body.name // date is auto-populated by model
-  });
-  newItem.save().then(item => res.json(item));
-});
+  })
+  newItem.save().then(item => res.json(item))
+})
 
 // @route DELETE api/items
 // @desc delete an item
@@ -36,12 +36,9 @@ router.delete('/:id', (req, res) => {
         })
       )
     )
-
     .catch(err =>
-      res.status(404).json({
-        success: false
-      })
-    );
-});
+      console.log(err)
+    )
+})
 
-module.exports = router;
+module.exports = router

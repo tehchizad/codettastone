@@ -1,11 +1,32 @@
 env:
+  browser: true
   es6: true
-  node: true
 extends: standard
+parser: babel-eslint
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
 parserOptions:
+  ecmaFeatures:
+    jsx: true
   ecmaVersion: 2018
   sourceType: module
-rules: {}
+plugins:
+  - react
+rules:
+  no-irregular-whitespace:
+    - 2
+  semi:
+    - 1
+    - never
+  quotes:
+    - error
+    - single
+  jsx-quotes:
+    - error
+    - prefer-single
+  indent:
+    - error
+    - 2
+  react/jsx-uses-vars:
+    - 2

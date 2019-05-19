@@ -4,7 +4,7 @@ const options = {
   disableDefaultUI: true,
   center: gMarker
 }
-const missionMarker = { lat: 37.7844, lng: -122.395 }
+// const missionMarker = { lat: 37.7844, lng: -122.395 }
 const bartImg = 'https://maps.gstatic.com/mapfiles/transit/iw2/6/us-ca-bart.png'
 const markers = [
   {
@@ -22,25 +22,25 @@ const markers = [
 function initMarkers (map) {
   markers.forEach(mark => {
     mark.map = map
-    let marker = new google.maps.Marker(mark)
+    let marker = new window.google.maps.Marker(mark) // eslint-disable-line
   })
-}
+};
 
-function initMap () {
+function initMap () { // eslint-disable-line
   fetch('json/mapstyle.json')
     .then(response => response.json())
     .then(styleObj => {
-      let map = new google.maps.Map(document.getElementById('map'), options)
-      let styledMapType = new google.maps.StyledMapType(styleObj, { name: 'Styled Map' })
+      let map = new window.google.maps.Map(document.getElementById('map'), options) // eslint-disable-line
+      let styledMapType = new window.google.maps.StyledMapType(styleObj, { name: 'Styled Map' }) // eslint-disable-line
 
-      directionsService = new google.maps.DirectionsService()
-      directionsDisplay = new google.maps.DirectionsRenderer()
+      directionsService = new window.google.maps.DirectionsService() // eslint-disable-line
+      directionsDisplay = new window.google.maps.DirectionsRenderer() // eslint-disable-line
 
       map.mapTypes.set('styled_map', styledMapType)
       map.setMapTypeId('styled_map')
       map.setCenter(gMarker)
-      directionsDisplay.setMap(map)
+      directionsDisplay.setMap(map)// eslint-disable-line
       initMarkers(map)
     })
-    .then(() => getAPI())
+    .then(() => getAPI())// eslint-disable-line
 }
