@@ -16,7 +16,7 @@
     "request": "^2.88.0"
   },
   "devDependencies": {
-    "babel-eslint": "*",
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-config-standard": "^12.0.0",
@@ -29,14 +29,12 @@
     "eslint-plugin-react": "*",
     "eslint-plugin-react-hooks": "*",
     "eslint-plugin-standard": "^4.0.0",
-    "nodemon": "*",
-    "prettier": "*"
+    "nodemon": "^1.19.0",
+    "prettier": "^1.17.1"
   },
   "scripts": {
     "start": "node server.js",
-    "deploy": "gcloud app deploy --version=2",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "deploy": "gcloud app deploy --version=2"
   },
   "repository": {
     "type": "git",
